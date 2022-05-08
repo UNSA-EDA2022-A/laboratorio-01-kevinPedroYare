@@ -21,8 +21,32 @@ public class Exercise2 {
 	}
 
 	public Integer getMenorNumeroSaltos(int a []) {
+		int rana = 0, total = a.length, menorSaltos = 0;
+		int [] saltos = new int [total+1];
+		int [] aux = new int [total+1];
+		saltos[rana]=0;
+		for(int i = 1; i <= total; i++){
+			saltos[i] = a[i-1];
+		}
+		for(int i = 0; i < total; i++){
+			aux[i] = a[i];
+		}
+		aux[total] = a[total-1]+50;
 
-		// TO DO
-		return -1;
+		int i = 0;
+		while(i <= total){
+			if((aux[i] - saltos[rana]) <= 50){
+				i++;
+			}else if((aux[i] - aux[i-1]) > 50){
+				return menorSaltos = -1;
+			}else{
+				rana = i;
+				i++;
+				menorSaltos++;
+				System.out.println("paso 2 " + saltos[rana]);
+			}
+		}
+
+		return menorSaltos;
 	}
 }
